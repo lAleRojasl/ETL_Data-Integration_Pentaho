@@ -1,120 +1,103 @@
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-446', '1', '20.43']"
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-637', '1', '24.98']"
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-437', '1', '23.73']"
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-117', '1', '31.44']"
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-652', '1', '25.16']"
-"['Ankuoo NEO Smart Switch', 'http://www.ankuoo.com/products/?sort=2', 'SS-667', '1', '35.81']"
-"['BayitHome Switch', 'http://www.bayithomeautomation.com/products/bayit-switch/', 'SS-831', '1', '51.17']"
-"['BayitHome Switch', 'http://www.bayithomeautomation.com/products/bayit-switch/', 'SS-1000', '1', '51.98']"
-"['BayitHome Switch', 'http://www.bayithomeautomation.com/products/bayit-switch/', 'SS-5', '1', '46.36']"
-"['BayitHome Switch', 'http://www.bayithomeautomation.com/products/bayit-switch/', 'SS-306', '1', '37.05']"
-"['BayitHome Switch', 'http://www.bayithomeautomation.com/products/bayit-switch/', 'SS-279', '1', '53.26']"
-"['BlueSpray Irrigation', 'https://www.bluespray.net/', 'IRS-73', '2', '84.58']"
-"['BlueSpray Irrigation', 'https://www.bluespray.net/', 'IRS-42', '2', '134.13']"
-"['BlueSpray Irrigation', 'https://www.bluespray.net/', 'IRS-834', '2', '94.17']"
-"['BlueSpray Irrigation', 'https://www.bluespray.net/', 'IRS-565', '2', '77.89']"
-"['BlueSpray Irrigation', 'https://www.bluespray.net/', 'IRS-143', '2', '87.46']"
-"['Blossom Sprinkler System', 'https://www.myblossom.com/', 'IRS-731', '2', '135.06']"
-"['Blossom Sprinkler System', 'https://www.myblossom.com/', 'IRS-844', '2', '127.69']"
-"['Blossom Sprinkler System', 'https://www.myblossom.com/', 'IRS-722', '2', '157.98']"
-"['Blossom Sprinkler System', 'https://www.myblossom.com/', 'IRS-926', '2', '100.36']"
-"['Blossom Sprinkler System', 'https://www.myblossom.com/', 'IRS-329', '2', '142.38']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-880', '2', '202.1']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-177', '2', '244.82']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-489', '2', '204.01']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-904', '2', '194.39']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-310', '2', '266.08']"
-"['GreenIQ Smart Garden', 'http://greeniq.co/', 'IRS-513', '2', '221.26']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-804', '3', '191.67']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-599', '3', '224.21']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-656', '3', '278.92']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-507', '3', '336.58']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-774', '3', '236.68']"
-"['Neurio Energy Monitor', 'https://www.neur.io/', 'EM-371', '3', '243.09']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-205', '3', '362.25']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-555', '3', '304.87']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-14', '3', '341.63']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-964', '3', '463.91']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-485', '3', '305.51']"
-"['Eyedro Electricity Monitor', 'http://eyedro.com/home-electricity-monitors/', 'EM-70', '3', '314.46']"
-"['Smappee Electicity Monitor', 'http://www.smappee.com/eu_es/monitor-de-energia/', 'EM-660', '3', '233.38']"
-"['Smappee Electicity Monitor', 'http://www.smappee.com/eu_es/monitor-de-energia/', 'EM-909', '3', '295.41']"
-"['Smappee Electicity Monitor', 'http://www.smappee.com/eu_es/monitor-de-energia/', 'EM-544', '3', '411.76']"
-"['Smappee Electicity Monitor', 'http://www.smappee.com/eu_es/monitor-de-energia/', 'EM-512', '3', '311.05']"
-"['Smappee Gas&Water Monitor', 'http://www.smappee.com/eu_es/monitor-de-agua-y-gas/', 'GWM-72', '4', '454.57']"
-"['Smappee Gas&Water Monitor', 'http://www.smappee.com/eu_es/monitor-de-agua-y-gas/', 'GWM-348', '4', '514.97']"
-"['Smappee Gas&Water Monitor', 'http://www.smappee.com/eu_es/monitor-de-agua-y-gas/', 'GWM-995', '4', '359.55']"
-"['Smappee Gas&Water Monitor', 'http://www.smappee.com/eu_es/monitor-de-agua-y-gas/', 'GWM-959', '4', '452.58']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-866', '5', '81.62']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-569', '5', '84.14']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-154', '5', '88.39']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-100', '5', '88.04']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-413', '5', '95.18']"
-"['AcuRite Sensors', 'https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html', 'THM-684', '5', '117.06']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-294', '5', '126.31']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-810', '5', '126.26']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-137', '5', '89.88']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-685', '5', '134.2']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-343', '5', '101.57']"
-"['Keen Temp&Air Control', 'https://keenhome.io/', 'THM-611', '5', '130.02']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-143', '5', '85.6']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-541', '5', '79.19']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-136', '5', '72.28']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-819', '5', '91.38']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-595', '5', '94.21']"
-"['ConnectSense Temperature Sensor', 'https://www.connectsense.com/wireless-temperature-sensor', 'THM-956', '5', '91.87']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-153', '5', '97.07']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-578', '5', '104.67']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-760', '5', '141.22']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-705', '5', '124.96']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-812', '5', '134.51']"
-"['SensorPush Monitors', 'http://www.sensorpush.com/', 'THM-519', '5', '81.23']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-116', '6', '45.16']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-31', '6', '65.03']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-331', '6', '54.87']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-323', '6', '54.67']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-546', '6', '46.07']"
-"['LIFX SmartBulbs', 'https://www.lifx.com/', 'SLB-54', '6', '53.07']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-234', '6', '54.88']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-145', '6', '88.42']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-452', '6', '84.32']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-890', '6', '65.65']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-105', '6', '79.08']"
-"['Phillips Hue Bulbs', 'http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26', 'SLB-803', '6', '88.92']"
-"['FluxSmart Bulbs', 'https://www.fluxsmartlighting.com/products/flux-bluetooth', 'SLB-766', '6', '106.01']"
-"['FluxSmart Bulbs', 'https://www.fluxsmartlighting.com/products/flux-bluetooth', 'SLB-550', '6', '108.86']"
-"['FluxSmart Bulbs', 'https://www.fluxsmartlighting.com/products/flux-bluetooth', 'SLB-347', '6', '81.63']"
-"['FluxSmart Bulbs', 'https://www.fluxsmartlighting.com/products/flux-bluetooth', 'SLB-84', '6', '85.89']"
-"['FluxSmart Bulbs', 'https://www.fluxsmartlighting.com/products/flux-bluetooth', 'SLB-764', '6', '76.98']"
-"['August Smart Lock', 'http://august.com/products/august-smart-lock/', 'SLK-513', '7', '137.54']"
-"['August Smart Lock', 'http://august.com/products/august-smart-lock/', 'SLK-658', '7', '197.39']"
-"['August Smart Lock', 'http://august.com/products/august-smart-lock/', 'SLK-853', '7', '136.83']"
-"['August Doorbell Cam', 'http://august.com/products/doorbell-camera/', 'SLK-901', '7', '104.53']"
-"['August Doorbell Cam', 'http://august.com/products/doorbell-camera/', 'SLK-789', '7', '131.71']"
-"['August Doorbell Cam', 'http://august.com/products/doorbell-camera/', 'SLK-569', '7', '128.64']"
-"['August Doorbell Cam', 'http://august.com/products/doorbell-camera/', 'SLK-442', '7', '107.54']"
-"['August Doorbell Cam', 'http://august.com/products/doorbell-camera/', 'SLK-364', '7', '123.31']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-557', '7', '190.39']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-954', '7', '158.85']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-30', '7', '105.48']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-292', '7', '146.51']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-405', '7', '156.71']"
-"['Lockitron Bolt', 'https://lockitron.com/', 'SLK-835', '7', '144.25']"
-"['Chipolo Tracker', 'https://chipolo.net/products', 'TKR-709', '8', '68.43']"
-"['Chipolo Tracker', 'https://chipolo.net/products', 'TKR-448', '8', '57.59']"
-"['Chipolo Tracker', 'https://chipolo.net/products', 'TKR-319', '8', '68.19']"
-"['Lapa KeyTracker', 'https://findlapa.com/', 'TKR-366', '8', '57.95']"
-"['Lapa KeyTracker', 'https://findlapa.com/', 'TKR-381', '8', '43.55']"
-"['Lapa KeyTracker', 'https://findlapa.com/', 'TKR-654', '8', '54.62']"
-"['Lapa KeyTracker', 'https://findlapa.com/', 'TKR-396', '8', '57.58']"
-"['Lapa KeyTracker', 'https://findlapa.com/', 'TKR-480', '8', '55.87']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-200', '9', '748.36']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-345', '9', '549.74']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-496', '9', '439.05']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-628', '9', '328.98']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-461', '9', '480.56']"
-"['Neposmart Outdoor Camera', 'https://neposmart.com/outdoor-camera/', 'CAM-429', '9', '509.52']"
-"['Neposmart Indoor Camera', 'https://neposmart.com/indoor-camera/', 'CAM-69', '9', '485.84']"
-"['Neposmart Indoor Camera', 'https://neposmart.com/indoor-camera/', 'CAM-706', '9', '552.56']"
-"['Neposmart Indoor Camera', 'https://neposmart.com/indoor-camera/', 'CAM-158', '9', '546.13']"
-"['Neposmart Indoor Camera', 'https://neposmart.com/indoor-camera/', 'CAM-765', '9', '337.66']"
+Ankuoo NEO Smart Switch,http://www.ankuoo.com/products/?sort=2,SS-383,1,29.19
+Ankuoo NEO Smart Switch,http://www.ankuoo.com/products/?sort=2,SS-568,1,29.87
+Ankuoo NEO Smart Switch,http://www.ankuoo.com/products/?sort=2,SS-184,1,33.4
+BayitHome Switch,http://www.bayithomeautomation.com/products/bayit-switch/,SS-531,1,33.55
+BayitHome Switch,http://www.bayithomeautomation.com/products/bayit-switch/,SS-733,1,47.24
+BayitHome Switch,http://www.bayithomeautomation.com/products/bayit-switch/,SS-555,1,49.53
+BayitHome Switch,http://www.bayithomeautomation.com/products/bayit-switch/,SS-310,1,33.41
+BlueSpray Irrigation,https://www.bluespray.net/,IRS-389,2,105.19
+BlueSpray Irrigation,https://www.bluespray.net/,IRS-661,2,84.41
+BlueSpray Irrigation,https://www.bluespray.net/,IRS-479,2,114.0
+BlueSpray Irrigation,https://www.bluespray.net/,IRS-744,2,131.93
+BlueSpray Irrigation,https://www.bluespray.net/,IRS-256,2,114.08
+Blossom Sprinkler System,https://www.myblossom.com/,IRS-301,2,91.98
+Blossom Sprinkler System,https://www.myblossom.com/,IRS-484,2,81.89
+Blossom Sprinkler System,https://www.myblossom.com/,IRS-626,2,141.46
+GreenIQ Smart Garden,http://greeniq.co/,IRS-789,2,178.18
+GreenIQ Smart Garden,http://greeniq.co/,IRS-666,2,188.21
+GreenIQ Smart Garden,http://greeniq.co/,IRS-538,2,218.49
+GreenIQ Smart Garden,http://greeniq.co/,IRS-815,2,232.09
+GreenIQ Smart Garden,http://greeniq.co/,IRS-186,2,171.96
+GreenIQ Smart Garden,http://greeniq.co/,IRS-523,2,237.62
+Neurio Energy Monitor,https://www.neur.io/,EM-601,3,230.1
+Neurio Energy Monitor,https://www.neur.io/,EM-419,3,266.99
+Neurio Energy Monitor,https://www.neur.io/,EM-334,3,284.43
+Neurio Energy Monitor,https://www.neur.io/,EM-937,3,215.82
+Neurio Energy Monitor,https://www.neur.io/,EM-529,3,254.84
+Neurio Energy Monitor,https://www.neur.io/,EM-7,3,198.78
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-920,3,250.56
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-570,3,311.08
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-689,3,338.47
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-729,3,297.81
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-449,3,353.34
+Eyedro Electricity Monitor,http://eyedro.com/home-electricity-monitors/,EM-524,3,299.62
+Smappee Electicity Monitor,http://www.smappee.com/eu_es/monitor-de-energia/,EM-934,3,376.44
+Smappee Electicity Monitor,http://www.smappee.com/eu_es/monitor-de-energia/,EM-806,3,246.36
+Smappee Electicity Monitor,http://www.smappee.com/eu_es/monitor-de-energia/,EM-945,3,343.29
+Smappee Gas&Water Monitor,http://www.smappee.com/eu_es/monitor-de-agua-y-gas/,GWM-456,4,366.1
+Smappee Gas&Water Monitor,http://www.smappee.com/eu_es/monitor-de-agua-y-gas/,GWM-268,4,420.44
+Smappee Gas&Water Monitor,http://www.smappee.com/eu_es/monitor-de-agua-y-gas/,GWM-766,4,225.47
+Smappee Gas&Water Monitor,http://www.smappee.com/eu_es/monitor-de-agua-y-gas/,GWM-29,4,336.23
+Smappee Gas&Water Monitor,http://www.smappee.com/eu_es/monitor-de-agua-y-gas/,GWM-288,4,345.09
+AcuRite Sensors,https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html,THM-107,5,121.83
+AcuRite Sensors,https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html,THM-316,5,113.57
+AcuRite Sensors,https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html,THM-667,5,85.1
+AcuRite Sensors,https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html,THM-915,5,83.64
+Keen Temp&Air Control,https://keenhome.io/,THM-435,5,126.15
+Keen Temp&Air Control,https://keenhome.io/,THM-996,5,124.34
+Keen Temp&Air Control,https://keenhome.io/,THM-235,5,82.93
+Keen Temp&Air Control,https://keenhome.io/,THM-424,5,123.05
+Keen Temp&Air Control,https://keenhome.io/,THM-822,5,135.48
+ConnectSense Temperature Sensor,https://www.connectsense.com/wireless-temperature-sensor,THM-919,5,88.34
+ConnectSense Temperature Sensor,https://www.connectsense.com/wireless-temperature-sensor,THM-558,5,115.0
+ConnectSense Temperature Sensor,https://www.connectsense.com/wireless-temperature-sensor,THM-932,5,67.65
+ConnectSense Temperature Sensor,https://www.connectsense.com/wireless-temperature-sensor,THM-490,5,95.59
+ConnectSense Temperature Sensor,https://www.connectsense.com/wireless-temperature-sensor,THM-302,5,79.89
+SensorPush Monitors,http://www.sensorpush.com/,THM-758,5,101.29
+SensorPush Monitors,http://www.sensorpush.com/,THM-219,5,90.89
+SensorPush Monitors,http://www.sensorpush.com/,THM-11,5,93.59
+SensorPush Monitors,http://www.sensorpush.com/,THM-390,5,116.23
+SensorPush Monitors,http://www.sensorpush.com/,THM-733,5,87.27
+LIFX SmartBulbs,https://www.lifx.com/,SLB-939,6,48.83
+LIFX SmartBulbs,https://www.lifx.com/,SLB-922,6,56.58
+LIFX SmartBulbs,https://www.lifx.com/,SLB-380,6,36.02
+Phillips Hue Bulbs,http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26,SLB-892,6,69.03
+Phillips Hue Bulbs,http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26,SLB-749,6,67.54
+Phillips Hue Bulbs,http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26,SLB-587,6,83.97
+Phillips Hue Bulbs,http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26,SLB-171,6,68.18
+FluxSmart Bulbs,https://www.fluxsmartlighting.com/products/flux-bluetooth,SLB-904,6,81.4
+FluxSmart Bulbs,https://www.fluxsmartlighting.com/products/flux-bluetooth,SLB-618,6,71.19
+FluxSmart Bulbs,https://www.fluxsmartlighting.com/products/flux-bluetooth,SLB-790,6,76.21
+August Smart Lock,http://august.com/products/august-smart-lock/,SLK-734,7,134.54
+August Smart Lock,http://august.com/products/august-smart-lock/,SLK-418,7,209.01
+August Smart Lock,http://august.com/products/august-smart-lock/,SLK-353,7,211.45
+August Smart Lock,http://august.com/products/august-smart-lock/,SLK-727,7,192.1
+August Doorbell Cam,http://august.com/products/doorbell-camera/,SLK-682,7,92.94
+August Doorbell Cam,http://august.com/products/doorbell-camera/,SLK-172,7,114.97
+August Doorbell Cam,http://august.com/products/doorbell-camera/,SLK-21,7,94.43
+August Doorbell Cam,http://august.com/products/doorbell-camera/,SLK-165,7,140.3
+August Doorbell Cam,http://august.com/products/doorbell-camera/,SLK-171,7,100.09
+Lockitron Bolt,https://lockitron.com/,SLK-953,7,115.19
+Lockitron Bolt,https://lockitron.com/,SLK-661,7,187.94
+Lockitron Bolt,https://lockitron.com/,SLK-367,7,137.6
+Lockitron Bolt,https://lockitron.com/,SLK-671,7,141.55
+Chipolo Tracker,https://chipolo.net/products,TKR-627,8,64.13
+Chipolo Tracker,https://chipolo.net/products,TKR-410,8,59.47
+Chipolo Tracker,https://chipolo.net/products,TKR-484,8,56.05
+Chipolo Tracker,https://chipolo.net/products,TKR-300,8,71.99
+Chipolo Tracker,https://chipolo.net/products,TKR-137,8,73.6
+Chipolo Tracker,https://chipolo.net/products,TKR-941,8,86.3
+Lapa KeyTracker,https://findlapa.com/,TKR-892,8,39.81
+Lapa KeyTracker,https://findlapa.com/,TKR-314,8,54.98
+Lapa KeyTracker,https://findlapa.com/,TKR-890,8,37.18
+Lapa KeyTracker,https://findlapa.com/,TKR-597,8,47.66
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-726,9,452.49
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-956,9,474.98
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-256,9,507.9
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-495,9,651.5
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-341,9,462.71
+Neposmart Outdoor Camera,https://neposmart.com/outdoor-camera/,CAM-992,9,506.05
+Neposmart Indoor Camera,https://neposmart.com/indoor-camera/,CAM-106,9,411.93
+Neposmart Indoor Camera,https://neposmart.com/indoor-camera/,CAM-970,9,487.87
+Neposmart Indoor Camera,https://neposmart.com/indoor-camera/,CAM-438,9,468.96
+Neposmart Indoor Camera,https://neposmart.com/indoor-camera/,CAM-610,9,392.96

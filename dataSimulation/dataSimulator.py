@@ -281,7 +281,7 @@ with open('prodsData.csv', 'w', newline='') as prodCSV:
     for prod in base_prods:
         csvwriter = csv.writer(prodCSV, delimiter=',',
                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csvwriter.writerow([prod])
+        csvwriter.writerow(prod)
     print("Guardando ultimo estado de productos a prodsData.csv..................OK")
 
 #Guardamos los materiales con los stocks mas recientes (luego de la simulacion de los 5 años)

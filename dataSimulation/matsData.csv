@@ -1,121 +1,119 @@
-Battery,B-100,50
-Battery,B-210,58
-Battery,B-533,44
-Capacitor,C-100,48
-Capacitor,C-222,52
-Capacitor,C-299,46
-Capacitor,C-401,48
-Capacitor,C-840,52
-Cathode Ray Tube,CTR-151,53
-Cathode Ray Tube,CTR-214,51
-Cathode Ray Tube,CTR-253,52
-Cathode Ray Tube,CTR-687,57
-Circuit Breaker,CBK-146,53
-Circuit Breaker,CBK-493,42
-Circuit Breaker,CBK-982,58
-Crystal resonator,CRS-931,47
-Digital Signal Processor,DSP-105,44
-Digital Signal Processor,DSP-416,56
-Digital Signal Processor,DSP-527,51
-Digital Signal Processor,DSP-784,42
-Digital Signal Processor,DSP-867,42
-Digital signal processor,DSP-348,49
-Digital signal processor,DSP-653,48
-Digital signal processor,DSP-750,42
-Field effect Transistor,FET-203,49
-Filament lamp,FLP-668,56
-Fuse,F-115,50
-Fuse,F-212,55
-Fuse,F-281,51
-Gas Discharge Tube,GDT-282,52
-Gas Discharge Tube,GDT-425,49
-Gas Discharge Tube,GDT-612,44
-Gas Discharge Tube,GDT-613,50
-Glass Lense,GL-116,50
-Glass Lense,GL-423,51
-Glass Lense,GL-498,50
-Glass Lense,GL-561,57
-Glass Lense,GL-679,49
-Glass Lense,GL-812,45
-Glass Lense,GL-83,59
-Integrated Circuit,IC-233,42
-Integrated Circuit,IC-634,43
-Junction Gate Field-effect transistor,JFET-161,53
-Junction Gate Field-effect transistor,JFET-181,49
-Junction Gate Field-effect transistor,JFET-224,46
-Junction Gate Field-effect transistor,JFET-669,59
-Junction Gate Field-effect transistor,JFET-941,45
-LCD Screen,LCD-423,47
-LCD Screen,LCD-490,47
-LCD Screen,LCD-823,49
-LCD Screen,LCD-843,47
-Light Emitting Diode,LED-587,43
-Metal Oxide Semiconductor FET,MOSFET-409,59
-Metal Oxide Semiconductor FET,MOSFET-689,40
-Metal Oxide Semiconductor FET,MOSFET-70,47
-Metal Oxide Semiconductor FET,MOSFET-976,48
-Microprocessor,MP-273,53
-Microprocessor,MP-90,47
-Motherboard,MB-804,47
-Motor,M-541,49
-Motor,M-828,56
-Nixie Tube,NXT-534,56
-Nixie Tube,NXT-702,45
-Nixie Tube,NXT-819,40
-Nixie Tube,NXT-980,46
-Operational Amplifier,OP-32,56
-Operational Amplifier,OP-423,46
-Operational Amplifier,OP-893,54
-Peltier Cooler,PCL-254,58
-Phototube,PTT-406,54
-Plastic Casing,PCS-12,58
-Plastic Casing,PCS-393,51
-Plastic Casing,PCS-53,50
-Plastic Casing,PCS-644,45
-Plastic Casing,PCS-696,53
-Plastic Casing,PCS-778,58
-Plastic Casing,PCS-858,52
-Plastic Casing,PCS-880,51
-Plastic Casing,PCS-897,50
-Relay,RLA-665,43
-Relay,RLA-862,41
-Relay,RLA-942,45
-Resistor,R-249,45
-Resistor,R-305,57
-Resistor,R-772,58
-Resistor,R-801,60
-Silicon controlled rectifier,SCR-19,48
-Silicon controlled rectifier,SCR-375,48
-Silicon controlled rectifier,SCR-644,43
-Static Induction transistor,SIT-244,47
-Switch,SW-565,53
-Test Point,TP-882,49
-Thin film transistor,TFT-578,44
-Thin film transistor,TFT-590,43
-Thin film transistor,TFT-980,51
-Transformer,T-131,56
-Transformer,T-250,48
-Transformer,T-474,52
-Transformer,T-504,44
-Transformer,T-682,53
-Transformer,T-807,43
-Transformer,T-930,50
-Tunnel Diode,TDE-418,49
-Tunnel Diode,TDE-737,45
-Tunnel Diode,TDE-836,49
-Valve Tube,V-101,43
-Valve Tube,V-189,59
-Valve Tube,V-489,53
-Valve Tube,V-573,46
-Valve Tube,V-595,51
-Valve Tube,V-732,54
-Valve Tube,V-815,54
-Variable capacitor,VC-470,41
-Variable capacitor,VC-492,56
-Variable capacitor,VC-661,52
-Very Large Scale Integration,VLSI-10,57
-Very Large Scale Integration,VLSI-745,53
-Very Large Scale Integration,VLSI-986,43
-Wire Link,WL-112,57
-Wire Link,WL-938,57
-Zener Diode,ZDE-532,49
+Battery,B-562,43
+Battery,B-806,56
+Battery,B-899,46
+Battery,B-9,54
+Battery,B-912,54
+Capacitor,C-283,56
+Capacitor,C-433,53
+Capacitor,C-513,40
+Capacitor,C-779,40
+Cathode Ray Tube,CTR-156,53
+Cathode Ray Tube,CTR-267,51
+Cathode Ray Tube,CTR-484,51
+Crystal resonator,CRS-631,50
+Crystal resonator,CRS-880,50
+Digital Signal Processor,DSP-738,55
+Digital Signal Processor,DSP-831,42
+Digital Signal Processor,DSP-854,49
+Digital Signal Processor,DSP-955,49
+Digital signal processor,DSP-171,41
+Digital signal processor,DSP-335,51
+Digital signal processor,DSP-364,53
+Digital signal processor,DSP-477,42
+Digital signal processor,DSP-518,53
+Digital signal processor,DSP-931,48
+Field effect Transistor,FET-14,50
+Field effect Transistor,FET-946,45
+Filament lamp,FLP-21,57
+Filament lamp,FLP-473,41
+Filament lamp,FLP-916,43
+Filament lamp,FLP-959,56
+Fuse,F-126,43
+Fuse,F-450,50
+Fuse,F-707,47
+Fuse,F-788,60
+Fuse,F-893,48
+Gas Discharge Tube,GDT-185,47
+Gas Discharge Tube,GDT-30,60
+Gas Discharge Tube,GDT-53,58
+Gas Discharge Tube,GDT-963,58
+Glass Lense,GL-794,60
+Integrated Circuit,IC-467,56
+Integrated Circuit,IC-744,54
+Integrated Circuit,IC-816,49
+Junction Gate Field-effect transistor,JFET-340,41
+Junction Gate Field-effect transistor,JFET-506,58
+Junction Gate Field-effect transistor,JFET-573,49
+Junction Gate Field-effect transistor,JFET-629,54
+Junction Gate Field-effect transistor,JFET-807,60
+LCD Screen,LCD-44,59
+LCD Screen,LCD-527,55
+LCD Screen,LCD-68,55
+LCD Screen,LCD-799,46
+LCD Screen,LCD-805,57
+Light Emitting Diode,LED-292,53
+Light Emitting Diode,LED-536,59
+Metal Oxide Semiconductor FET,MOSFET-484,58
+Metal Oxide Semiconductor FET,MOSFET-890,47
+Microprocessor,MP-144,56
+Microprocessor,MP-366,45
+Microprocessor,MP-843,58
+Motherboard,MB-271,53
+Motherboard,MB-551,44
+Motherboard,MB-823,57
+Motherboard,MB-88,44
+Motor,M-1000,40
+Motor,M-400,58
+Motor,M-868,45
+Motor,M-87,41
+Nixie Tube,NXT-904,45
+Operational Amplifier,OP-222,58
+Operational Amplifier,OP-261,46
+Operational Amplifier,OP-359,43
+Operational Amplifier,OP-72,52
+Operational Amplifier,OP-740,45
+Peltier Cooler,PCL-100,49
+Phototube,PTT-160,41
+Phototube,PTT-878,52
+Plastic Casing,PCS-327,59
+Plastic Casing,PCS-451,40
+Plastic Casing,PCS-482,54
+Plastic Casing,PCS-621,51
+Relay,RLA-289,47
+Relay,RLA-39,60
+Relay,RLA-728,55
+Resistor,R-317,49
+Resistor,R-392,54
+Resistor,R-488,54
+Resistor,R-778,43
+Silicon controlled rectifier,SCR-524,58
+Silicon controlled rectifier,SCR-559,48
+Silicon controlled rectifier,SCR-561,60
+Silicon controlled rectifier,SCR-912,42
+Static Induction transistor,SIT-11,56
+Static Induction transistor,SIT-550,60
+Switch,SW-233,46
+Switch,SW-821,45
+Switch,SW-840,52
+Test Point,TP-628,43
+Thin film transistor,TFT-626,45
+Thin film transistor,TFT-693,40
+Thin film transistor,TFT-842,40
+Transformer,T-320,49
+Transformer,T-450,54
+Transformer,T-633,50
+Transformer,T-901,46
+Tunnel Diode,TDE-216,58
+Tunnel Diode,TDE-575,58
+Tunnel Diode,TDE-649,58
+Valve Tube,V-733,56
+Variable capacitor,VC-443,56
+Variable capacitor,VC-501,45
+Variable capacitor,VC-8,57
+Very Large Scale Integration,VLSI-371,42
+Wire Link,WL-106,54
+Wire Link,WL-575,45
+Wire Link,WL-595,56
+Zener Diode,ZDE-117,55
+Zener Diode,ZDE-195,51
+Zener Diode,ZDE-92,45
