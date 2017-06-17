@@ -10,6 +10,10 @@ import operator
 #The assemble-to-order (ATO) strategy requires that the basic parts for the product are already
 #manufactured but not yet assembled. Once an order is received, the parts are assembled quickly and sent to the customer.
 
+checkers = ["Juan Gomez H","Melissa Hernandez C","Pedro Rodriguez O","Javier Viquez T","Victor Arias B"]
+
+carriers = ["FedEx","UPS","Correos de Costa Rica","DHL","GoPato"]
+
 distribuidores = ["Allied Electronics","Neward","Toyo Communication Equipment CO.",
                   "NIC Components Corporations","RCD Components","Megaphase LLC","RARA Electronics Corp.",
                   "Avnet Inc.", "Future Electronics", "Digi-Key Corp.", "Bisco Industries Inc."]
@@ -49,12 +53,17 @@ productos = [("Ankuoo NEO Smart Switch","http://www.ankuoo.com/products/?sort=2"
              ("Neposmart Indoor Camera","https://neposmart.com/indoor-camera/","CAM","9","420.95")]
 
 max_mats = 6000
-
-generated_mats = 0
-
 base_mats = []
 base_prods = []
 matsXProds = []
+clientes = []
+
+#Cargamos los clientes pre-generados
+with open('clientes.csv', 'r') as clientesCSV:
+    reader = csv.reader(clientesCSV)
+    clientes = list(reader)
+print("Cargando clientes pre-generados..................OK")
+
 
 #Debemos simular los events ocurridos en un lapso de los ultimos 5 años
 #Para esto usamos la libreria datetime para iterar sobre estas fechas de manera precisa.
@@ -70,10 +79,12 @@ def getNextDate(currentDate, moveDays=1):
 #print(getNextDate(dato,20))
 
 #Funcion para generar numeros seriales random de materiales o productos
+#Tambien se usa para generar tracking numbers aleatorios
 def id_generator(size=8, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-with open('matsData.csv', 'w', newline='') as matsCSV:
+def generateMats():
+    generated_mats = 0
     #Primero vamos a generar una lista de materiales iniciales
     #En base a estos se van a generar las "entradas" y "salidas" para que sea mas realista
     #Luego de realizar las entradas y salida nos va a quedar un 
@@ -101,26 +112,25 @@ with open('matsData.csv', 'w', newline='') as matsCSV:
 
         #Lista con la base de materiales iniciales
         base_mats.append([random_mat_name,mat_model,random_stock,random_cost])
+    print("Materiales base generados..................OK")
+generateMats()
         
-    sortedlist = sorted(base_mats)
-    for mat in sortedlist:
-        spamwriter = csv.writer(matsCSV, delimiter=',',
-                          quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        spamwriter.writerow([mat[0],mat[1],mat[2]])
-
-with open('prodsData.csv', 'w', newline='') as prodCSV:
+# Datos de los productos.
+#   - Estos no se guardan en el csv hasta despues de la simulacion de 5 años.
+def generateProducts():
     for i in range(0,len(productos)):
         prod = productos[i]
         prod_models = randint(3,6)
         for x in range(0,prod_models):
             #Formato: Letra + '-' + numero. Ej: TKR-52 para productos de Smart Tracking
-            prod_modelNum = randint(0,100)
+            prod_modelNum = randint(0,1000)
+            mod_prct = random.uniform(-0.05,0.06)
+            temp_price = float(prod[4])
+            new_price = str(round((temp_price + temp_price*mod_prct), 2))
             prod_model = prod[2] + '-' + str(prod_modelNum)
-            base_prods.append([prod[0],prod[1],prod_model,prod[3],prod[4]])
-            spamwriter = csv.writer(prodCSV, delimiter=',',
-                                    quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            spamwriter.writerow([prod[0],prod[1],prod_model,prod[3],prod[4]])
-
+            base_prods.append([prod[0],prod[1],prod_model,prod[3],new_price])
+    print("Productos base generados..................OK")
+generateProducts()
 
 #Teniendo los productos y los materiales base
 #Podemos simular cuales materiales se necesitan para ensamblar cada producto
@@ -142,72 +152,146 @@ with open('matXProdData.csv', 'w', newline='') as mXpCSV:
             spamwriter = csv.writer(mXpCSV, delimiter=',',
                                     quotechar='"', quoting=csv.QUOTE_MINIMAL)
             spamwriter.writerow([matNum, matXprod, mat_cant])
-                
+    print("Generando Materiales necesarios por Producto..................OK")
 
 #Debemos simular las entradas y salidas de materiales durante 5 años
 #Aspectos a considerar:
 #   - Deben ser 80000 movimientos, esto es aproximadamente 43.8 movimientos por dia
 #     O 333 movimientos por semana.
 #   VENTAS:
-#   - Las ventas deben sumar 9000 en los ultimos 5 años, lo que son 1800 al año, 150 por mes o 37 por semana.
+#   - Las ventas deben sumar minimo 9000 en los ultimos 5 años, lo que son 1800 al año, 150 por mes o 37 por semana.
 #   SALIDAS:
-#   - Para tratar de hacerlo mas distribuido vamos a usar un random entre 1 y 7
-#     que determine el dia a la semana que se hicieron las salidas
+#   - Para tratar de hacerlo distribuido vamos a generar entre 4 y 8 ventas diarias, para clientes aleatorios.
 #   ENTRADAS:
 #   - Vamos a asumir que las entradas (re-supply) son en base a los componentes que se
 #     van gastando, por lo que a principio de cada semana (lunes) se hacen ordenes de compra con los componentes que estan
 #     por debajo de cierta cantidad minima (30). Esta orden llega a la bodega entre 2 a 5 dias despues.
+#     finalmente tambien se simula si la orden tuvo algun inconveniente (llego tarde, partes defectuosas, devoluciones,etc)
+#     sin embargo la probabilidad de que esto pase es muy baja. Aprox. 0.001% de posibilidad o 10 de cada 10000.
 
+print("Iniciando simulacion de datos durante 5 años....")
+with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
+    currentDate = startDate
+    #Agregamos los precios iniciales de los productos
+    for prodIndex in range(len(base_prods)):
+        csvwriter = csv.writer(variacionesCSV, delimiter=',',
+                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csvwriter.writerow([prodIndex,base_prods[prodIndex][4],str(currentDate)])
+    with open('simOrdenesCompra.csv','w',newline='') as ordenesCSV:
+        with open('simLineasXOrden.csv','w',newline='') as lineasCSV:
+            with open('simVentasXCliente.csv','w',newline='') as ventasCSV:
+                with open('simSalidas.csv','w',newline='') as salidasCSV:
+                    with open('simDespachos.csv','w',newline='') as despachosCSV:
+                        delta = endDate - startDate
+                        currentMonth = currentDate.month
+                        currentYear = currentDate.year
+                        min_prods_changed = int(len(base_prods)/3)
+                        max_prods_changed = int(len(base_prods) - min_prods_changed)
+                        #Iteramos sobre todas las fechas desde 1-5-2012 hasta 31-5-2017 (~5 años)
+                        while currentDate < endDate:
+                            currentDate = getNextDate(currentDate)
 
-with open('simSalidas','w',newline='') as salidasCSV:
-    with open('simOrdenesCompra','w',newline='') as ordenesCSV:
-        with open('simLineasXOrden','w',newline='') as lineasCSV:
-            with open('simVentasXCliente','w',newline='') as ventasCSV:
-                with open('simVariacionPrecios','w',newline='') as variacionesCSV:
-                    #Iteramos sobre todas las fechas desde 1-5-2012 hasta 31-5-2017 (~5 años)
-                    delta = endDate - startDate
-                    currentDate = startDate
-                    currentMonth = currentDate.month
-                    min_prods_changed = int(len(base_prods)/3)
-                    max_prods_changed = int(len(base_prods) - min_prods_changed)
-                    while currentDate < endDate:
-                        currentDate = getNextDate(currentDate)
-
-                        #A principio de cada semana (cada lunes)
-                        #Vamos a simular las ordenes de compra en base a lo que se gasto la semana anterior
-                        if(currentDate.weekday() == 1):
-                            #Cada mes se ajustan los precios de ciertos productos para controlar la demanda y ganancias
-                            if(currentMonth != currentDate.month):
-                                #print("New month. Prices changes for some products")
-                                #Cantidad de precios de productos a modificar
-                                cant_mod_prods = randint(min_prods_changed,max_prods_changed)
-                                #escogemos aleatoriamente cuales se modifican (sin repetir)
-                                selected_prods = random.sample(range(len(base_prods)),cant_mod_prods)
-                                #moficamos cada precio con +- %10 uniform(-10,10)
-                                for prodIndex in selected_prods:
-                                    mod_prct = random.uniform(-0.05,0.06)
-                                    temp_price = float(base_prods[prodIndex][4])
-                                    new_price = str(round((temp_price + temp_price*mod_prct), 2))
-                                    base_prods[prodIndex][4] = new_price
-                                    spamwriter = csv.writer(variacionesCSV, delimiter=',',
-                                                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                    spamwriter.writerow([prodIndex+1,new_price,str(currentDate)])
-                                currentMonth = currentDate.month
-                            
+                            if(currentDate.weekday() == 1):
+                                # A principio de semana (cada lunes) se realizan las ordenes de compra
+                                # Estas son en base a los materiales que se han gastado mas y estan ahora
+                                # por debajo de cierta cantidad minima (40).
                                 
-                        
-                        
-                        #Cada dia se hacen entre 4 y 8 ventas a clientes (tenemos un listado de 1000 clientes generados)
-                        week_sales = randint(4,8)
-                        #Determinamos cuales clientes compraron esos productos y lo guardamos
-                        # for x in range(week_sales):
+                                # Cada mes se ajustan los precios de ciertos productos para controlar la demanda y ganancias
+                                if(currentMonth != currentDate.month):
+                                    # Cantidad de precios de productos a modificar
+                                    cant_mod_prods = randint(min_prods_changed,max_prods_changed)
+                                    # Escogemos aleatoriamente cuales se modifican (sin repetir)
+                                    selected_prods = random.sample(range(len(base_prods)),cant_mod_prods)
+                                    # Moficamos cada precio con +- ~%5 uniform(-5,6)
+                                    for prodIndex in selected_prods:
+                                        mod_prct = random.uniform(-0.05,0.06)
+                                        temp_price = float(base_prods[prodIndex][4])
+                                        new_price = str(round((temp_price + temp_price*mod_prct), 2))
+                                        base_prods[prodIndex][4] = new_price
+                                        csvwriter = csv.writer(variacionesCSV, delimiter=',',
+                                                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                        csvwriter.writerow([prodIndex+1,new_price,str(currentDate)])
+                                    currentMonth = currentDate.month
+                                
                             
-                        #spamwriter = csv.writer(ventasCSV, delimiter=',',
-                         #                       quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                        #spamwriter.writerow([])
+                            # Cada dia se hacen entre 5 y 10 ventas a clientes
+                            daily_sales = randint(5,10)
+                            # Determinamos cuales clientes compraron esos productos y lo guardamos
+                            # Utilizamos un while ya que un cliente puede comprar mas de 1 producto
+                            while daily_sales > 0:
+                                # Tenemos un listado de 450 clientes unicos
+                                # por lo que escogemos aleatoriamente cual hizo la compra
+                                selected_client = randint(0,449)
+                                # Cantidad de productos que este cliente compro
+                                amount_purchased = randint(1,3)
+                                # Cuales productos compro exactamente, basado en el catalogo
+                                purchased_prods = random.sample(range(1,len(base_prods)),amount_purchased)
+                                # Lo agregamos al registro de ventas
+                                for prodIndex in purchased_prods:
+                                    # ------------ CSV de Ventas ------------- #
+                                    csvwriter = csv.writer(ventasCSV, delimiter=',',
+                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                    # IDCliente, IDProducto, costo_producto, fecha_compra
+                                    csvwriter.writerow([selected_client+1, prodIndex+1, base_prods[prodIndex][4], currentDate])
+                                    
+                                    # ------------ CSV de Salidas ------------- #
+                                    # Las salidas de materiales son en base a los productos vendidos
+                                    # Para esto revisamos los datos de matsXProds que nos indica la "receta" de cada producto
+                                    required_mats = [mXp for mXp in matsXProds if mXp[0] == prodIndex]
+                                    #for mat in required_mats:
+                                        # Debemos reducir la cantidad de materiales disponibles (stock) en base_mats
+                                        # Esto determina al inicio de cada semana cuales materiales se deben comprar.
 
-            
+                                    
+                                # ----------- CSV de Despachos ----------- #
+                                # Los despachos se realizan 1 dia despues de la venta, pues es lo que tardan en ensamblarlos
+                                # Se hace un despacho por cliente.
+                                # Id del chequeador encargado de revisar el despacho
+                                checker_name = random.choice(checkers)
 
-print(len(base_mats))
-print(len(base_prods))
+                                # Los paquetes suelen despacharse entre las 7:00 y las 12:00
+                                rand_time = str(randint(7,13))+':00:00'
+                                    
+                                # Nombre del carrier
+                                carrier_name = random.choice(carriers)
+
+                                pais = clientes[selected_client][5]
+                                av = ""
+                                if(pais == "Guatemala"): av = "GTM"                                
+                                if(pais == "Costa Rica"): av = "CRC"                                
+                                if(pais == "Nicaragua"): av = "NIC"
+                                if(pais == "Panama"): av = "PAN"
+                                    
+                                csvwriter = csv.writer(despachosCSV, delimiter=',',
+                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                # Nombre del chequeador, fecha, hora, nombre del carrier
+                                # numero de guia, cantidad despachada, pais destino y consumidor
+                                csvwriter.writerow([checker_name, currentDate, rand_time, carrier_name,
+                                                    av+'-'+id_generator(14), amount_purchased, pais, selected_client+1 ])
+
+                                #Actualizamos cantidad de ventas
+                                daily_sales -= amount_purchased
+
+                            if(currentDate.year != currentYear):
+                                print("-->Datos del año "+str(currentYear)+" generados...........OK")
+                                currentYear = currentDate.year
+
+#Guardamos los productos con los precios mas recientes (luego de la simulacion de los 5 años)
+with open('prodsData.csv', 'w', newline='') as prodCSV:
+    for prod in base_prods:
+        csvwriter = csv.writer(prodCSV, delimiter=',',
+                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csvwriter.writerow([prod])
+    print("Guardando ultimo estado de productos a prodsData.csv..................OK")
+
+#Guardamos los materiales con los stocks mas recientes (luego de la simulacion de los 5 años)
+with open('matsData.csv', 'w', newline='') as matsCSV:        
+    sortedlist = sorted(base_mats)
+    for mat in sortedlist:
+        csvwriter = csv.writer(matsCSV, delimiter=',',
+                          quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csvwriter.writerow([mat[0],mat[1],mat[2]])
+    print("Guardando ultimo estado de materiales a matsData.csv..................OK")
+
+#Excel: 
 
