@@ -1,0 +1,156 @@
+Nombre,Modelo,Stock,CostoUnitario
+Battery,B-114,68,0.89
+Battery,B-378,67,0.2
+Battery,B-655,82,0.46
+Capacitor,C-315,71,0.6
+Capacitor,C-583,73,0.21
+Capacitor,C-629,57,0.21
+Capacitor,C-732,88,0.51
+Cathode Ray Tube,CTR-173,81,0.3
+Cathode Ray Tube,CTR-286,79,0.74
+Cathode Ray Tube,CTR-315,79,0.55
+Cathode Ray Tube,CTR-762,65,0.24
+Cathode Ray Tube,CTR-824,89,0.43
+Cathode Ray Tube,CTR-841,66,1.03
+Cathode Ray Tube,CTR-908,58,0.53
+Cathode Ray Tube,CTR-95,87,0.3
+Circuit Breaker,CBK-376,60,0.32
+Circuit Breaker,CBK-67,74,0.82
+Crystal resonator,CRS-80,67,0.34
+Digital Signal Processor,DSP-572,71,0.41
+Digital Signal Processor,DSP-833,49,0.18
+Digital Signal Processor,DSP-995,59,0.44
+Digital signal processor,DSP-178,72,0.91
+Digital signal processor,DSP-767,75,0.39
+Digital signal processor,DSP-831,74,0.79
+Digital signal processor,DSP-863,69,0.37
+Digital signal processor,DSP-912,88,0.46
+Field effect Transistor,FET-372,85,0.7
+Field effect Transistor,FET-487,89,0.18
+Field effect Transistor,FET-693,88,0.17
+Field effect Transistor,FET-777,66,0.65
+Filament lamp,FLP-281,53,0.16
+Filament lamp,FLP-3,86,0.54
+Filament lamp,FLP-315,55,0.28
+Filament lamp,FLP-564,71,0.33
+Filament lamp,FLP-741,68,0.33
+Filament lamp,FLP-918,83,0.84
+Fuse,F-1,56,0.53
+Fuse,F-18,62,1.1
+Fuse,F-407,81,0.44
+Fuse,F-415,85,0.4
+Fuse,F-553,68,0.96
+Fuse,F-658,80,0.59
+Fuse,F-814,72,1.09
+Gas Discharge Tube,GDT-128,76,0.98
+Gas Discharge Tube,GDT-702,65,0.44
+Glass Lense,GL-192,86,0.27
+Glass Lense,GL-4,82,0.72
+Glass Lense,GL-509,84,0.99
+Glass Lense,GL-915,64,1.08
+Glass Lense,GL-967,83,0.58
+Integrated Circuit,IC-107,68,1.1
+Integrated Circuit,IC-238,91,0.71
+Integrated Circuit,IC-364,79,0.17
+Integrated Circuit,IC-7,76,1.14
+Integrated Circuit,IC-748,56,0.24
+Integrated Circuit,IC-880,82,0.57
+LCD Screen,LCD-119,68,0.29
+LCD Screen,LCD-163,73,0.72
+LCD Screen,LCD-232,70,0.42
+LCD Screen,LCD-331,76,0.86
+LCD Screen,LCD-556,81,0.8
+LCD Screen,LCD-776,85,0.8
+LCD Screen,LCD-896,86,0.82
+LCD Screen,LCD-902,52,0.62
+Light Emitting Diode,LED-109,77,0.24
+Metal Oxide Semiconductor FET,MOSFET-226,73,0.72
+Metal Oxide Semiconductor FET,MOSFET-845,60,0.33
+Metal Oxide Semiconductor FET,MOSFET-846,75,0.39
+Metal Oxide Semiconductor FET,MOSFET-870,63,0.5
+Microprocessor,MP-302,69,0.95
+Microprocessor,MP-751,76,0.78
+Motherboard,MB-132,68,1.13
+Motherboard,MB-725,74,0.52
+Motor,M-37,64,0.6
+Motor,M-685,67,0.48
+Nixie Tube,NXT-179,87,1.04
+Nixie Tube,NXT-247,68,0.97
+Nixie Tube,NXT-368,74,0.53
+Nixie Tube,NXT-449,79,0.86
+Nixie Tube,NXT-537,93,0.62
+Nixie Tube,NXT-863,66,0.85
+Nixie Tube,NXT-953,60,1.04
+Operational Amplifier,OP-133,66,1.13
+Operational Amplifier,OP-187,76,0.92
+Operational Amplifier,OP-658,86,0.9
+Operational Amplifier,OP-873,60,0.86
+Operational Amplifier,OP-964,64,0.4
+Peltier Cooler,PCL-777,80,0.73
+Phototube,PTT-634,58,1.07
+Phototube,PTT-681,85,1.01
+Phototube,PTT-904,73,0.31
+Phototube,PTT-934,89,1.04
+Plastic Casing,PCS-134,85,0.64
+Plastic Casing,PCS-354,52,0.64
+Plastic Casing,PCS-403,89,0.24
+Plastic Casing,PCS-553,71,0.26
+Plastic Casing,PCS-757,68,0.32
+Plastic Casing,PCS-847,57,0.93
+Plastic Casing,PCS-870,62,0.73
+Plastic Casing,PCS-968,97,0.99
+Relay,RLA-209,89,0.57
+Relay,RLA-3,71,0.92
+Relay,RLA-668,66,0.78
+Relay,RLA-675,81,1.14
+Relay,RLA-737,78,0.62
+Relay,RLA-916,88,0.52
+Resistor,R-37,64,1.02
+Resistor,R-373,75,0.52
+Resistor,R-616,66,0.95
+Resistor,R-701,76,0.55
+Silicon controlled rectifier,SCR-552,76,0.16
+Silicon controlled rectifier,SCR-564,77,0.17
+Static Induction transistor,SIT-123,55,0.82
+Static Induction transistor,SIT-592,59,0.37
+Static Induction transistor,SIT-645,62,0.39
+Static Induction transistor,SIT-925,94,0.47
+Switch,SW-225,85,0.47
+Switch,SW-37,57,0.42
+Switch,SW-492,96,1.13
+Switch,SW-951,88,0.75
+Test Point,TP-186,78,1.03
+Test Point,TP-393,84,0.31
+Test Point,TP-556,61,1.08
+Thin film transistor,TFT-185,60,0.93
+Thin film transistor,TFT-207,81,0.4
+Thin film transistor,TFT-324,79,0.43
+Thin film transistor,TFT-34,73,0.76
+Thin film transistor,TFT-768,92,0.98
+Transformer,T-421,62,1.12
+Transformer,T-532,62,1.14
+Transformer,T-549,91,0.42
+Transformer,T-759,66,0.26
+Transformer,T-925,68,0.37
+Tunnel Diode,TDE-2,58,0.21
+Tunnel Diode,TDE-327,67,0.33
+Tunnel Diode,TDE-375,82,0.41
+Tunnel Diode,TDE-429,61,0.15
+Tunnel Diode,TDE-493,76,0.46
+Valve Tube,V-345,73,1.1
+Valve Tube,V-686,62,0.57
+Valve Tube,V-728,89,0.34
+Variable capacitor,VC-382,63,1.09
+Variable capacitor,VC-524,59,0.21
+Variable capacitor,VC-533,94,0.6
+Variable capacitor,VC-83,82,0.61
+Very Large Scale Integration,VLSI-160,65,1.13
+Very Large Scale Integration,VLSI-755,86,0.73
+Very Large Scale Integration,VLSI-873,67,0.16
+Wire Link,WL-193,79,0.45
+Wire Link,WL-606,98,1.01
+Zener Diode,ZDE-321,67,0.29
+Zener Diode,ZDE-522,67,1.08
+Zener Diode,ZDE-563,61,0.62
+Zener Diode,ZDE-677,78,1.07
+Zener Diode,ZDE-707,80,1.14

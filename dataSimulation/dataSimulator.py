@@ -140,21 +140,23 @@ generateProducts()
 #   - Vamos a asumir que un dispositivo necesita en promedio ~60 materiales
 #     divididos entre 10 a 20 tipos. Esto es, un dispositivo puede necesitar
 #     por ejemplo, 6 transistores, 4 resistores, 2 baterias, 1 motor, etc.
-with open('matXProdData.csv', 'w', newline='') as mXpCSV:
-    matNum = 0
+with open('MaterialXProducto.csv', 'w', newline='') as mXpCSV:
+    #-Encabezados-
+    spamwriter = csv.writer(mXpCSV, delimiter=',',
+                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    spamwriter.writerow(["ProductoID","MaterialID","Cantidad"])
+    prodNum = 0
     cant_prods = len(base_prods)
     for i in range(0, cant_prods):
-        matNum += 1
+        prodNum += 1
         #cantidad de materiales necesarios para un producto
         distribucion_mats = randint(7,15)
         #escogemos los 10 a 25 materiales aleatorios (sin repetir) 
         selected_mats = random.sample(range(1,len(base_mats)),distribucion_mats)
         for matXprod in selected_mats:
             mat_cant = randint(1,5)
-            matsXProds.append([matNum, matXprod, mat_cant])
-            spamwriter = csv.writer(mXpCSV, delimiter=',',
-                                    quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            spamwriter.writerow([matNum, matXprod, mat_cant])
+            matsXProds.append([prodNum, matXprod, mat_cant])
+            spamwriter.writerow([prodNum, matXprod, mat_cant])
     print("Generando Materiales necesarios por Producto..................OK")
 
 #Debemos simular las entradas y salidas de materiales durante 5 años
@@ -173,18 +175,49 @@ with open('matXProdData.csv', 'w', newline='') as mXpCSV:
 #     sin embargo la probabilidad de que esto pase es muy baja. Aprox. 0.001% de posibilidad o 10 de cada 10000.
 
 print("Iniciando simulacion de datos durante 5 años....")
-with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
-    currentDate = startDate
+currentDate = startDate
+# ------------ CSV de Variaciones Precios ------------- #
+with open('VariacionPrecio.csv','w',newline='') as variacionesCSV:
+    #-Encabezados-
+    varsWriter = csv.writer(variacionesCSV, delimiter=',',
+                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    varsWriter.writerow(["ProductoID","NuevoPrecio","FechaMod"])
     #Agregamos los precios iniciales de los productos
     for prodIndex in range(len(base_prods)):
-        csvwriter = csv.writer(variacionesCSV, delimiter=',',
+        varsWriter.writerow([prodIndex,base_prods[prodIndex][4],str(currentDate)])
+    # ------------ CSV de Ordenes de Compra ------------- #
+    with open('OrdenDeCompra.csv','w',newline='') as ordenesCSV:
+        #-Encabezados-
+        ordenWriter = csv.writer(ordenesCSV, delimiter=',',
                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csvwriter.writerow([prodIndex,base_prods[prodIndex][4],str(currentDate)])
-    with open('simOrdenesCompra.csv','w',newline='') as ordenesCSV:
-        with open('simLineasXOrden.csv','w',newline='') as lineasCSV:
-            with open('simVentasXCliente.csv','w',newline='') as ventasCSV:
-                with open('simSalidas.csv','w',newline='') as salidasCSV:
-                    with open('simDespachos.csv','w',newline='') as despachosCSV:
+        ordenWriter.writerow(["OrdenID","Autorizador","FechaOrden","Distribuidor","TotalFacturado","Estado","TotalCancelado","FechaEstado"])
+        # ------------ CSV de Lineas X Orden de Compra ------------- #
+        with open('LineasXOrden.csv','w',newline='') as lineasCSV:
+            #-Encabezados-
+            lineaWriter = csv.writer(lineasCSV, delimiter=',',
+                                   quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            lineaWriter.writerow(["OrdenID","MaterialID","Cantidad","PrecioUnitario","PrecioTotal"])
+            # ------------ CSV de Ventas Por Cliente ------------- #
+            with open('VentasXCliente.csv','w',newline='') as ventasCSV:
+                #-Encabezados-
+                ventaWriter = csv.writer(ventasCSV, delimiter=',',
+                                       quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                ventaWriter.writerow(["ClienteID","ProductoID","CostoProducto","FechaCompra"])
+                # ------------ CSV de Salidas De Materiales ------------- #
+                with open('MovSalidas.csv','w',newline='') as salidasCSV:
+                    #-Encabezados-
+                    salidaWriter = csv.writer(salidasCSV, delimiter=',',
+                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    salidaWriter.writerow(["BoletaID","MaterialID","Cantidad"])
+                    # ------------ CSV de Despachos De Productos ------------- #
+                    with open('Despachos.csv','w',newline='') as despachosCSV:
+                        #-Encabezados-
+                        despachoWriter = csv.writer(despachosCSV, delimiter=',',
+                                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                        despachoWriter.writerow(["NombreChequeador","FechaDespacho","HoraDespacho","Carrier","NumeroGuia",
+                                                 "CantidadDespachada","PaisDestino","ClienteID"])
+                        
+                        #Variables iniciales
                         delta = endDate - startDate
                         currentMonth = currentDate.month
                         currentYear = currentDate.year
@@ -241,10 +274,9 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                         precio_unitario = float(mats[3])
                                         totalXmat = round(resupply * precio_unitario,2)
                                         total_invoice =  round(total_invoice + totalXmat, 2)
-                                        csvwriter = csv.writer(lineasCSV, delimiter=',',
-                                                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                        
                                         #Consecutivo de Orden, IDMaterial, cantidad, precio_unitario, totalXmaterial
-                                        csvwriter.writerow([order_number, matIndx,resupply, precio_unitario, totalXmat])
+                                        lineaWriter.writerow([order_number, matIndx,resupply, precio_unitario, totalXmat])
                                         
                                         if(order_fulfilled):
                                             #Volvemos a "ingresar" los materiales al stock (solo si la orden llego bien)
@@ -258,10 +290,9 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                 if(new_order):
                                     # ------------ CSV de Orden_de_Compra (Entrada) ------------- #
                                     auth_name = random.choice(autorizadores)
-                                    csvwriter = csv.writer(ordenesCSV, delimiter=',',
-                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                    #Consecutivo de Orden, autorizado_por, fecha_orden,total_facturado, estado, total_cancelado, fecha_estado
-                                    csvwriter.writerow([order_number,auth_name, currentDate, total_invoice, order_result, total_cancelled, order_date])
+                                    distrib = randint(1,len(distribuidores))
+                                    #Consecutivo de Orden, autorizado_por, fecha_orden,total_facturado, distribuidor, estado, total_cancelado, fecha_estado
+                                    ordenWriter.writerow([order_number,auth_name, currentDate, distrib, total_invoice, order_result, total_cancelled, order_date])
                                     total_invoice = 0
                                 
                                 
@@ -278,9 +309,8 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                         temp_price = float(base_prods[prodIndex][4])
                                         new_price = str(round((temp_price + temp_price*mod_prct), 2))
                                         base_prods[prodIndex][4] = new_price
-                                        csvwriter = csv.writer(variacionesCSV, delimiter=',',
-                                                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                        csvwriter.writerow([prodIndex+1,new_price,str(currentDate)])
+                                        # ------------ CSV de Variaciones de Precio ------------- #
+                                        varsWriter.writerow([prodIndex+1,new_price,str(currentDate)])
                                     currentMonth = currentDate.month
                                 
                             daily_mats = []
@@ -299,10 +329,8 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                 # Lo agregamos al registro de ventas
                                 for prodIndex in purchased_prods:
                                     # ------------ CSV de Ventas ------------- #
-                                    csvwriter = csv.writer(ventasCSV, delimiter=',',
-                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
                                     # IDCliente, IDProducto, costo_producto, fecha_compra
-                                    csvwriter.writerow([selected_client+1, prodIndex+1, base_prods[prodIndex][4], currentDate])
+                                    ventaWriter.writerow([selected_client+1, prodIndex+1, base_prods[prodIndex][4], currentDate])
 
                                     # Las salidas de materiales son en base a los productos vendidos diariamente
                                     # Para esto revisamos los datos de matsXProds que nos indica la "receta" de cada producto
@@ -334,11 +362,9 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                 if(pais == "Nicaragua"): av = "NIC"
                                 if(pais == "Panama"): av = "PAN"
                                     
-                                csvwriter = csv.writer(despachosCSV, delimiter=',',
-                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
                                 # Nombre del chequeador, fecha, hora, nombre del carrier
                                 # numero de guia, cantidad despachada, pais destino y consumidor
-                                csvwriter.writerow([checker_name, currentDate, rand_time, carrier_name,
+                                despachoWriter.writerow([checker_name, currentDate, rand_time, carrier_name,
                                                     av+'-'+id_generator(14), amount_purchased, pais, selected_client+1 ])
 
                                 #Actualizamos cantidad de ventas
@@ -353,10 +379,8 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                             np.add.at(salida_mats[:, 1:], unq_inv, daily_mats_array[:, 1:])
                             #Guardamos las salidas al csv
                             for mat in salida_mats:
-                                csvwriter = csv.writer(salidasCSV, delimiter=',',
-                                                       quotechar='"', quoting=csv.QUOTE_MINIMAL)
                                 # consecutivo de boleta, ID Material, cantidad
-                                csvwriter.writerow([ticket_number, mat[0], mat[1]])
+                                salidaWriter.writerow([ticket_number, mat[0], mat[1]])
                             
                             
                             if(currentDate.year != currentYear):
@@ -365,20 +389,22 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
 
                         print("-->Datos del año "+str(currentYear)+" generados...........OK")
 #Guardamos los productos con los precios mas recientes (luego de la simulacion de los 5 años)
-with open('prodsData.csv', 'w', newline='') as prodCSV:
+with open('Productos.csv', 'w', newline='') as prodCSV:
+    csvwriter = csv.writer(prodCSV, delimiter=',',
+                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    csvwriter.writerow(["Nombre","Link","Modelo","Categoria","PrecioVenta"])
     for prod in base_prods:
-        csvwriter = csv.writer(prodCSV, delimiter=',',
-                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csvwriter.writerow(prod)
     print("Guardando ultimo estado de productos a prodsData.csv..................OK")
 
 #Guardamos los materiales con los stocks mas recientes (luego de la simulacion de los 5 años)
-with open('matsData.csv', 'w', newline='') as matsCSV:        
+with open('Materiales.csv', 'w', newline='') as matsCSV:    
+    matWriter = csv.writer(matsCSV, delimiter=',',
+                           quotechar='"', quoting=csv.QUOTE_MINIMAL) 
+    matWriter.writerow(["Nombre","Modelo","Stock","CostoUnitario"])
     sortedlist = sorted(base_mats)
     for mat in sortedlist:
-        csvwriter = csv.writer(matsCSV, delimiter=',',
-                          quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csvwriter.writerow([mat[0],mat[1],mat[2],mat[3]])
+        matWriter.writerow([mat[0],mat[1],mat[2],mat[3]])
     print("Guardando ultimo estado de materiales a matsData.csv..................OK")
 
 #Excel: 
