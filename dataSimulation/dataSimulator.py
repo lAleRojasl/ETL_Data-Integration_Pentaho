@@ -4,6 +4,7 @@ import random
 from random import randint
 from datetime import date, timedelta
 import operator
+import numpy as np
 
 #Estrategia de produccion ATO - Assemble To Order
 #products ordered by customers are produced quickly and are customizable to a certain extent.
@@ -11,6 +12,8 @@ import operator
 #manufactured but not yet assembled. Once an order is received, the parts are assembled quickly and sent to the customer.
 
 checkers = ["Juan Gomez H","Melissa Hernandez C","Pedro Rodriguez O","Javier Viquez T","Victor Arias B"]
+
+autorizadores = ["Ana Laura Viquez M","Hector Venavidez T","Carolina Morera D","Manuel Hernandez G"]
 
 carriers = ["FedEx","UPS","Correos de Costa Rica","DHL","GoPato"]
 
@@ -30,8 +33,8 @@ mats_comunes = [("Battery","B"), ("Capacitor","C"), ("Microprocessor","MP"), ("C
               ("Valve Tube","V"),("Crystal resonator","CRS"),("Test Point","TP"),("Zener Diode","ZDE"), ("Motherboard","MB")]
 
 #productos IoT Nombre - Descripcion - link
-productos = [("Ankuoo NEO Smart Switch","http://www.ankuoo.com/products/?sort=2","SS","1","25.99"),
-             ("BayitHome Switch","http://www.bayithomeautomation.com/products/bayit-switch/","SS","1","39.99"),
+productos = [("Ankuoo NEO Smart Switch","http://www.ankuoo.com/products/?sort=2","SS","1","59.99"),
+             ("BayitHome Switch","http://www.bayithomeautomation.com/products/bayit-switch/","SS","1","79.99"),
              ("BlueSpray Irrigation","https://www.bluespray.net/","IRS","2","89.99"),
              ("Blossom Sprinkler System","https://www.myblossom.com/","IRS","2","99.99"),
              ("GreenIQ Smart Garden","http://greeniq.co/","IRS","2","185.99"),
@@ -42,13 +45,13 @@ productos = [("Ankuoo NEO Smart Switch","http://www.ankuoo.com/products/?sort=2"
              ("AcuRite Sensors","https://www.acurite.com/indoor-outdoor-thermometer-humidity-sensor-hd-display-my-acurite.html","THM","5","80.99"),
              ("Keen Temp&Air Control","https://keenhome.io/","THM","5","99.99"),
              ("ConnectSense Temperature Sensor","https://www.connectsense.com/wireless-temperature-sensor","THM","5","75.99"),
-             ("SensorPush Monitors","http://www.sensorpush.com/","THM","5","88.85"),("LIFX SmartBulbs","https://www.lifx.com/","SLB","6","45.95"),
+             ("SensorPush Monitors","http://www.sensorpush.com/","THM","5","88.85"),("LIFX SmartBulbs","https://www.lifx.com/","SLB","6","75.95"),
              ("Phillips Hue Bulbs","http://www2.meethue.com/en-us/productdetail/philips-hue-white-and-color-ambiance-br30-e26","SLB","6","60.99"),
              ("FluxSmart Bulbs","https://www.fluxsmartlighting.com/products/flux-bluetooth","SLB","6","75.99"),
              ("August Smart Lock","http://august.com/products/august-smart-lock/","SLK","7","140.95"),
              ("August Doorbell Cam","http://august.com/products/doorbell-camera/","SLK","7","99.95"),
              ("Lockitron Bolt","https://lockitron.com/","SLK","7","120.99"),
-             ("Chipolo Tracker","https://chipolo.net/products","TKR","8","59.99"),("Lapa KeyTracker","https://findlapa.com/","TKR","8","39.99"),
+             ("Chipolo Tracker","https://chipolo.net/products","TKR","8","59.99"),("Lapa KeyTracker","https://findlapa.com/","TKR","8","49.99"),
              ("Neposmart Outdoor Camera","https://neposmart.com/outdoor-camera/","CAM","9","399.99"),
              ("Neposmart Indoor Camera","https://neposmart.com/indoor-camera/","CAM","9","420.95")]
 
@@ -88,7 +91,7 @@ def generateMats():
     #Primero vamos a generar una lista de materiales iniciales
     #En base a estos se van a generar las "entradas" y "salidas" para que sea mas realista
     #Luego de realizar las entradas y salida nos va a quedar un 
-    while(generated_mats < 6000):
+    while(generated_mats < 8000):
         #Material random basado en la lista de posibilidades
         random_mat = random.choice(mats_comunes)
         random_mat_name = random_mat[0]
@@ -101,14 +104,14 @@ def generateMats():
 
         #Cantidad disponible (Stock).
         #Deben haber suficientes materiales para 100 dispositivos
-        #Vamos a usar stocks entre 40 y 60 hasta llegar a un total de 6000
-        random_stock = randint(40,60)
+        #Vamos a usar stocks entre 50 y 70 hasta llegar a un total de 8000
+        random_stock = randint(40,65)
             
         #Total de materiales que hemos generado
         generated_mats += random_stock
 
         #Generamos un costo del material
-        random_cost = round(random.uniform(0.01,0.9),5)
+        random_cost = round(random.uniform(0.15,1.15),2)
 
         #Lista con la base de materiales iniciales
         base_mats.append([random_mat_name,mat_model,random_stock,random_cost])
@@ -120,7 +123,7 @@ generateMats()
 def generateProducts():
     for i in range(0,len(productos)):
         prod = productos[i]
-        prod_models = randint(3,6)
+        prod_models = randint(4,7)
         for x in range(0,prod_models):
             #Formato: Letra + '-' + numero. Ej: TKR-52 para productos de Smart Tracking
             prod_modelNum = randint(0,1000)
@@ -135,7 +138,7 @@ generateProducts()
 #Teniendo los productos y los materiales base
 #Podemos simular cuales materiales se necesitan para ensamblar cada producto
 #   - Vamos a asumir que un dispositivo necesita en promedio ~60 materiales
-#     divididos entre 10 a 25 tipos. Esto es, un dispositivo puede necesitar
+#     divididos entre 10 a 20 tipos. Esto es, un dispositivo puede necesitar
 #     por ejemplo, 6 transistores, 4 resistores, 2 baterias, 1 motor, etc.
 with open('matXProdData.csv', 'w', newline='') as mXpCSV:
     matNum = 0
@@ -143,11 +146,11 @@ with open('matXProdData.csv', 'w', newline='') as mXpCSV:
     for i in range(0, cant_prods):
         matNum += 1
         #cantidad de materiales necesarios para un producto
-        distribucion_mats = randint(10,25)
+        distribucion_mats = randint(7,15)
         #escogemos los 10 a 25 materiales aleatorios (sin repetir) 
         selected_mats = random.sample(range(1,len(base_mats)),distribucion_mats)
         for matXprod in selected_mats:
-            mat_cant = randint(1,6)
+            mat_cant = randint(1,5)
             matsXProds.append([matNum, matXprod, mat_cant])
             spamwriter = csv.writer(mXpCSV, delimiter=',',
                                     quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -187,16 +190,83 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                         currentYear = currentDate.year
                         min_prods_changed = int(len(base_prods)/3)
                         max_prods_changed = int(len(base_prods) - min_prods_changed)
+                        ticket_number = 0
+                        order_number = 0
+                        total_invoice = 0
+                        order_result = "Recibido"
+                        order_date = currentDate
                         #Iteramos sobre todas las fechas desde 1-5-2012 hasta 31-5-2017 (~5 años)
                         while currentDate < endDate:
                             currentDate = getNextDate(currentDate)
 
+                            #Los domingos no se trabaja, nos lo brincamos
+                            if(currentDate.weekday() == 7):
+                                currentDate = getNextDate(currentDate)
+                    
                             if(currentDate.weekday() == 1):
+                                new_order = False
+                                order_fulfilled = True
+                                total_cancelled = 0
                                 # A principio de semana (cada lunes) se realizan las ordenes de compra
                                 # Estas son en base a los materiales que se han gastado mas y estan ahora
-                                # por debajo de cierta cantidad minima (40).
+                                # por debajo de cierta cantidad minima (30), se compran materiales para subir el stock de nuevo a 60-80.
+                                for matIndx in range(len(base_mats)):
+                                    if(int(base_mats[matIndx][2]) < 60):
+                                        #Nueva orden
+                                        if(not new_order):
+                                            new_order = True
+                                            order_number += 1
+                                            # Existe una muy baja probabilidad de que la orden haya tenido algun problema
+                                            # La orden puede llegar a tiempo, llegar tarde, o si llegar con partes defectuosas
+                                            # Las probabilidades de que las ultimas 2 ocurran son muy bajas (0.4% cada una)
+                                            order_result_num = np.random.choice(np.arange(1, 7), p=[0.23, 0.23, 0.23, 0.23, 0.04, 0.04]) 
+                                            # Tiempo de llegada normal (si sale de 1 a 4)
+                                            order_result = "Recibido"
+                                            order_date = getNextDate(currentDate,int(order_result_num))
+                                            # El paquete llego tarde (si sale 5)
+                                            if(order_result_num == 5):
+                                                order_result = "Recibido con atraso"                                                
+                                            # El paquete tuvo que ser devuelto por partes defectuosas (si sale 6)
+                                            if(order_result_num == 6):
+                                                order_result = "Devuelto por componentes defectuosos"
+                                                #En este caso se hacen las lineas de orden pero no se actualiza el inventario
+                                                order_fulfilled = False
+                                                #De igual manera el total cancelado es 0, pues se devolvieron los materiales 
+                                                total_cancelled = 0
+                                        
+                                        # ------------ CSV de Lineas por Orden (Detalle de la Orden) ------------- #
+                                        mats = base_mats[matIndx]
+                                        rand_supply = randint(80,100)
+                                        resupply = rand_supply - int(mats[2])
+                                        precio_unitario = float(mats[3])
+                                        totalXmat = round(resupply * precio_unitario,2)
+                                        total_invoice =  round(total_invoice + totalXmat, 2)
+                                        csvwriter = csv.writer(lineasCSV, delimiter=',',
+                                                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                        #Consecutivo de Orden, IDMaterial, cantidad, precio_unitario, totalXmaterial
+                                        csvwriter.writerow([order_number, matIndx,resupply, precio_unitario, totalXmat])
+                                        
+                                        if(order_fulfilled):
+                                            #Volvemos a "ingresar" los materiales al stock (solo si la orden llego bien)
+                                            mats[2] = rand_supply
+
+                                
+                                # Total cancelado por financiero (si la orden llego bien, si no es 0)
+                                if(order_fulfilled):
+                                    mod_prct = random.uniform(0.05,0.13)
+                                    total_cancelled = round((total_invoice + (total_invoice*mod_prct)), 2)
+                                if(new_order):
+                                    # ------------ CSV de Orden_de_Compra (Entrada) ------------- #
+                                    auth_name = random.choice(autorizadores)
+                                    csvwriter = csv.writer(ordenesCSV, delimiter=',',
+                                                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                    #Consecutivo de Orden, autorizado_por, fecha_orden,total_facturado, estado, total_cancelado, fecha_estado
+                                    csvwriter.writerow([order_number,auth_name, currentDate, total_invoice, order_result, total_cancelled, order_date])
+                                    total_invoice = 0
+                                
                                 
                                 # Cada mes se ajustan los precios de ciertos productos para controlar la demanda y ganancias
+                                # Esto tambien se debe en parte a que los precios de los materiales tambien varia.
                                 if(currentMonth != currentDate.month):
                                     # Cantidad de precios de productos a modificar
                                     cant_mod_prods = randint(min_prods_changed,max_prods_changed)
@@ -213,9 +283,9 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                         csvwriter.writerow([prodIndex+1,new_price,str(currentDate)])
                                     currentMonth = currentDate.month
                                 
-                            
-                            # Cada dia se hacen entre 5 y 10 ventas a clientes
-                            daily_sales = randint(5,10)
+                            daily_mats = []
+                            # Cada dia se hacen entre 6 y 9 ventas a clientes
+                            daily_sales = randint(7,10)
                             # Determinamos cuales clientes compraron esos productos y lo guardamos
                             # Utilizamos un while ya que un cliente puede comprar mas de 1 producto
                             while daily_sales > 0:
@@ -233,19 +303,21 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
                                                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
                                     # IDCliente, IDProducto, costo_producto, fecha_compra
                                     csvwriter.writerow([selected_client+1, prodIndex+1, base_prods[prodIndex][4], currentDate])
-                                    
-                                    # ------------ CSV de Salidas ------------- #
-                                    # Las salidas de materiales son en base a los productos vendidos
-                                    # Para esto revisamos los datos de matsXProds que nos indica la "receta" de cada producto
-                                    required_mats = [mXp for mXp in matsXProds if mXp[0] == prodIndex]
-                                    #for mat in required_mats:
-                                        # Debemos reducir la cantidad de materiales disponibles (stock) en base_mats
-                                        # Esto determina al inicio de cada semana cuales materiales se deben comprar.
 
-                                    
+                                    # Las salidas de materiales son en base a los productos vendidos diariamente
+                                    # Para esto revisamos los datos de matsXProds que nos indica la "receta" de cada producto
+                                    required_mats = [[mXp[1],mXp[2]] for mXp in matsXProds if mXp[0] == prodIndex]
+                                    for mat in required_mats:
+                                        #Los daily_mats son los que se usaran para registrar las salidas diarias de materiales
+                                        daily_mats.append(mat)
+                                        # Debemos reducir la cantidad de materiales disponibles (stock) en base_mats
+                                        # Esto determina al inicio de cada semana cuales materiales se deben comprar (re-supply).
+                                        cant_mat = int(base_mats[mat[0]][2])
+                                        base_mats[mat[0]][2] = str(cant_mat - int(mat[1]))
+
                                 # ----------- CSV de Despachos ----------- #
-                                # Los despachos se realizan 1 dia despues de la venta, pues es lo que tardan en ensamblarlos
-                                # Se hace un despacho por cliente.
+                                # Los despachos se realizan 2 dias despues de la venta, pues es lo que tardan
+                                # en hacer las salidas de materiales (1d) y en ensamblarlos (1d). Se hace un despacho por cliente.
                                 # Id del chequeador encargado de revisar el despacho
                                 checker_name = random.choice(checkers)
 
@@ -271,11 +343,27 @@ with open('simVariacionPrecios.csv','w',newline='') as variacionesCSV:
 
                                 #Actualizamos cantidad de ventas
                                 daily_sales -= amount_purchased
-
+                                
+                            # ------------ CSV de Salidas ------------- #
+                            ticket_number += 1
+                            daily_mats_array = np.array(daily_mats)
+                            unq, unq_inv = np.unique(daily_mats_array[:, 0], return_inverse=True)
+                            salida_mats = np.zeros((len(unq), daily_mats_array.shape[1]), dtype=daily_mats_array.dtype)
+                            salida_mats[:, 0] = unq
+                            np.add.at(salida_mats[:, 1:], unq_inv, daily_mats_array[:, 1:])
+                            #Guardamos las salidas al csv
+                            for mat in salida_mats:
+                                csvwriter = csv.writer(salidasCSV, delimiter=',',
+                                                       quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                # consecutivo de boleta, ID Material, cantidad
+                                csvwriter.writerow([ticket_number, mat[0], mat[1]])
+                            
+                            
                             if(currentDate.year != currentYear):
                                 print("-->Datos del año "+str(currentYear)+" generados...........OK")
                                 currentYear = currentDate.year
 
+                        print("-->Datos del año "+str(currentYear)+" generados...........OK")
 #Guardamos los productos con los precios mas recientes (luego de la simulacion de los 5 años)
 with open('prodsData.csv', 'w', newline='') as prodCSV:
     for prod in base_prods:
@@ -290,7 +378,7 @@ with open('matsData.csv', 'w', newline='') as matsCSV:
     for mat in sortedlist:
         csvwriter = csv.writer(matsCSV, delimiter=',',
                           quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csvwriter.writerow([mat[0],mat[1],mat[2]])
+        csvwriter.writerow([mat[0],mat[1],mat[2],mat[3]])
     print("Guardando ultimo estado de materiales a matsData.csv..................OK")
 
 #Excel: 
