@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="19-06-2017 09:18:16 CST" exportBy="admin" rootFolder="/home/admin/" manifestVersion="2"/>
+    <ExportManifestEntity path="DespachosYCarriers.prpti">
+        <ExportManifestProperty>
+            <EntityMetaData name="DespachosYCarriers.prpti" createdDate="2017-06-19T20:58:09.056-06:00" isFolder="false" path="DespachosYCarriers.prpti" isHidden="false" isSchedulable="true" locale="es" description="DespachosYCarriers.prpti" title="DespachosYCarriers"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

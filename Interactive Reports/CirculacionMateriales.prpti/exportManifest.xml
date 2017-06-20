@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="19-06-2017 09:18:17 CST" exportBy="admin" rootFolder="/home/admin/" manifestVersion="2"/>
+    <ExportManifestEntity path="CirculacionMateriales.prpti">
+        <ExportManifestProperty>
+            <EntityMetaData name="CirculacionMateriales.prpti" createdDate="2017-06-19T19:53:30.060-06:00" isFolder="false" path="CirculacionMateriales.prpti" isHidden="false" isSchedulable="true" locale="es" description="CirculacionMateriales.prpti" title="CirculacionMateriales"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>
