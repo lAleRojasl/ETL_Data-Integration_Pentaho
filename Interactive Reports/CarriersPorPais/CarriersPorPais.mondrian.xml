@@ -1,0 +1,46 @@
+<Schema name="CarriersPorPais">
+  <Dimension name="CantidadDespachada">
+    <Hierarchy hasAll="true">
+      <Table name="carriersporpais"/>
+      <Level name="CantidadDespachada" uniqueMembers="false" column="CantidadDespachada" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Carrier">
+    <Hierarchy hasAll="true">
+      <Table name="carriersporpais"/>
+      <Level name="Carrier" uniqueMembers="false" column="Carrier" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="PaisDestino">
+    <Hierarchy hasAll="true">
+      <Table name="carriersporpais"/>
+      <Level name="PaisDestino" uniqueMembers="false" column="PaisDestino" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="NombreChequeador">
+    <Hierarchy hasAll="true">
+      <Table name="carriersporpais"/>
+      <Level name="NombreChequeador" uniqueMembers="false" column="NombreChequeador" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="FechaDespacho">
+    <Hierarchy hasAll="true">
+      <Table name="carriersporpais"/>
+      <Level name="FechaDespacho" uniqueMembers="false" column="FechaDespacho" type="Date">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="CarriersPorPais">
+    <Table name="carriersporpais"/>
+    <DimensionUsage name="CantidadDespachada" source="CantidadDespachada"/>
+    <DimensionUsage name="Carrier" source="Carrier"/>
+    <DimensionUsage name="PaisDestino" source="PaisDestino"/>
+    <DimensionUsage name="NombreChequeador" source="NombreChequeador"/>
+    <DimensionUsage name="FechaDespacho" source="FechaDespacho"/>
+    <Measure name="CantidadDespachada" column="CantidadDespachada" aggregator="sum"/>
+  </Cube>
+</Schema>

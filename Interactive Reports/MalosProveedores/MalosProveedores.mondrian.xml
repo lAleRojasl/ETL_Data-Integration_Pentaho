@@ -1,0 +1,82 @@
+<Schema name="MalosProveedores">
+  <Dimension name="Estado">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Estado, Ocasiones
+FROM 
+(
+SELECT DistribuidorID, Estado, COUNT(OrdenID) as Ocasiones
+FROM OrdenDeCompra
+WHERE Estado != 'Recibido'
+GROUP BY DistribuidorID, Estado
+) AS EstadosOrden
+INNER JOIN 
+Distribuidores ON Distribuidores.DistribuidorID = EstadosOrden.DistribuidorID]]>
+        </SQL>
+    </View>
+      <Level name="Estado" uniqueMembers="false" column="Estado" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Nombre">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Estado, Ocasiones
+FROM 
+(
+SELECT DistribuidorID, Estado, COUNT(OrdenID) as Ocasiones
+FROM OrdenDeCompra
+WHERE Estado != 'Recibido'
+GROUP BY DistribuidorID, Estado
+) AS EstadosOrden
+INNER JOIN 
+Distribuidores ON Distribuidores.DistribuidorID = EstadosOrden.DistribuidorID]]>
+        </SQL>
+    </View>
+      <Level name="Nombre" uniqueMembers="false" column="Nombre" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Ocasiones">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Estado, Ocasiones
+FROM 
+(
+SELECT DistribuidorID, Estado, COUNT(OrdenID) as Ocasiones
+FROM OrdenDeCompra
+WHERE Estado != 'Recibido'
+GROUP BY DistribuidorID, Estado
+) AS EstadosOrden
+INNER JOIN 
+Distribuidores ON Distribuidores.DistribuidorID = EstadosOrden.DistribuidorID]]>
+        </SQL>
+    </View>
+      <Level name="Ocasiones" uniqueMembers="false" column="Ocasiones" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="MalosProveedores">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Estado, Ocasiones
+FROM 
+(
+SELECT DistribuidorID, Estado, COUNT(OrdenID) as Ocasiones
+FROM OrdenDeCompra
+WHERE Estado != 'Recibido'
+GROUP BY DistribuidorID, Estado
+) AS EstadosOrden
+INNER JOIN 
+Distribuidores ON Distribuidores.DistribuidorID = EstadosOrden.DistribuidorID]]>
+        </SQL>
+    </View>
+    <DimensionUsage name="Estado" source="Estado"/>
+    <DimensionUsage name="Nombre" source="Nombre"/>
+    <DimensionUsage name="Ocasiones" source="Ocasiones"/>
+    <Measure name="Ocasiones" column="Ocasiones" aggregator="sum"/>
+  </Cube>
+</Schema>

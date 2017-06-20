@@ -1,0 +1,74 @@
+<Schema name="ProductosMasVendidos">
+  <Dimension name="Modelo">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Modelo, Vendidos
+FROM
+(
+SELECT ProductoID, COUNT(VentaID) as Vendidos
+FROM VentasXCliente
+GROUP BY ProductoID) AS VentasProd
+INNER JOIN
+Productos ON Productos.ProductoID = VentasProd.ProductoID]]>
+        </SQL>
+    </View>
+      <Level name="Modelo" uniqueMembers="false" column="Modelo" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Nombre">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Modelo, Vendidos
+FROM
+(
+SELECT ProductoID, COUNT(VentaID) as Vendidos
+FROM VentasXCliente
+GROUP BY ProductoID) AS VentasProd
+INNER JOIN
+Productos ON Productos.ProductoID = VentasProd.ProductoID]]>
+        </SQL>
+    </View>
+      <Level name="Nombre" uniqueMembers="false" column="Nombre" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Vendidos">
+    <Hierarchy hasAll="true">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Modelo, Vendidos
+FROM
+(
+SELECT ProductoID, COUNT(VentaID) as Vendidos
+FROM VentasXCliente
+GROUP BY ProductoID) AS VentasProd
+INNER JOIN
+Productos ON Productos.ProductoID = VentasProd.ProductoID]]>
+        </SQL>
+    </View>
+      <Level name="Vendidos" uniqueMembers="false" column="Vendidos" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="ProductosMasVendidos">
+    <View alias="FACT">
+        <SQL dialect="generic">
+         <![CDATA[SELECT Nombre, Modelo, Vendidos
+FROM
+(
+SELECT ProductoID, COUNT(VentaID) as Vendidos
+FROM VentasXCliente
+GROUP BY ProductoID) AS VentasProd
+INNER JOIN
+Productos ON Productos.ProductoID = VentasProd.ProductoID]]>
+        </SQL>
+    </View>
+    <DimensionUsage name="Modelo" source="Modelo"/>
+    <DimensionUsage name="Nombre" source="Nombre"/>
+    <DimensionUsage name="Vendidos" source="Vendidos"/>
+    <Measure name="Vendidos" column="Vendidos" aggregator="sum"/>
+  </Cube>
+</Schema>

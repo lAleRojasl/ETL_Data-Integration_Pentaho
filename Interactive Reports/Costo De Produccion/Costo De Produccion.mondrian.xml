@@ -1,0 +1,39 @@
+<Schema name="Costo De Produccion">
+  <Dimension name="CostoMateriales">
+    <Hierarchy hasAll="true">
+      <Table name="Costo De Produccion" schema="Kettle"/>
+      <Level name="CostoMateriales" uniqueMembers="false" column="CostoMateriales" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Modelo">
+    <Hierarchy hasAll="true">
+      <Table name="Costo De Produccion" schema="Kettle"/>
+      <Level name="Modelo" uniqueMembers="false" column="Modelo" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="PrecioVenta">
+    <Hierarchy hasAll="true">
+      <Table name="Costo De Produccion" schema="Kettle"/>
+      <Level name="PrecioVenta" uniqueMembers="false" column="PrecioVenta" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Producto">
+    <Hierarchy hasAll="true">
+      <Table name="Costo De Produccion" schema="Kettle"/>
+      <Level name="Producto" uniqueMembers="false" column="Producto" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Costo De Produccion">
+    <Table name="Costo De Produccion" schema="Kettle"/>
+    <DimensionUsage name="CostoMateriales" source="CostoMateriales"/>
+    <DimensionUsage name="Modelo" source="Modelo"/>
+    <DimensionUsage name="PrecioVenta" source="PrecioVenta"/>
+    <DimensionUsage name="Producto" source="Producto"/>
+    <Measure name="CostoMateriales" column="CostoMateriales" aggregator="sum"/>
+    <Measure name="PrecioVenta" column="PrecioVenta" aggregator="sum"/>
+  </Cube>
+</Schema>
